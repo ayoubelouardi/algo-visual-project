@@ -23,65 +23,143 @@
 
 <div class="content">
 
-<h1>Visualizing Algorithms</h1>
+<h1>About Algorithm Visualization Project</h1>
 
-The best way to understand complex data structures is to see them in action. We've developed interactive animations for a 
-variety of data structures and algorithms. Our visualization tool is written in javascript using the HTML5 canvas element,
-and run in just about any modern browser  -- including iOS devices like the iPhone and iPad, and even the web browser in
-the Kindle!  (The frame rate is low enough in the Kindle that the visualizations aren't terribly useful, but the tree-based 
-visualizations -- BSTs and AVL Trees -- seem to work well enough)
+This project is a comprehensive collection of <b>interactive visualizations</b> for fundamental data structures and algorithms. Built with HTML5 Canvas and JavaScript, it provides an educational platform for understanding how various algorithms work through step-by-step animations.
 
-<br> <br>
-Check the <a href = "Algorithms.html">Algorithms</a> menu for all of the latest javascript implementations.
+<br><br>
 
-<h1> How to Use the Visualizations </h1>
+Originally created by David Galles at the University of San Francisco, this project continues to serve as an excellent learning resource for computer science students and educators worldwide.
 
-This visualizations are meant to be fairly self- explainitory, though there are some subleties for advanced usage.   Take a look at a
-typical visualization, for Binary Search Trees:
+<br><br>
 
-<br> <br> 
+<h2>Project Features</h2>
+
+<ul>
+<li><strong>Real-time step-by-step animations</strong> of algorithms</li>
+<li><strong>User-controlled execution</strong> with play, pause, and step controls</li>
+<li><strong>Input customization</strong> for testing different scenarios</li>
+<li><strong>Multi-platform support</strong> (desktop, mobile, tablets)</li>
+<li><strong>Self-explanatory interface</strong> with intuitive controls</li>
+<li><strong>Educational value</strong> for classroom demonstrations and self-study</li>
+</ul>
+
+<br>
+
+<h2>Technical Architecture</h2>
+
+The system follows a modular, object-oriented architecture built with vanilla JavaScript and HTML5 Canvas:
+
+<ul>
+<li><strong>Presentation Layer</strong>: HTML pages, CSS styling, and UI controls</li>
+<li><strong>Algorithm Layer</strong>: Base algorithm classes and specific implementations</li>
+<li><strong>Animation Layer</strong>: Animation engine and animated objects</li>
+<li><strong>Rendering Layer</strong>: HTML5 Canvas 2D context and timing APIs</li>
+</ul>
+
+<br>
+
+<h2>Available Visualizations</h2>
+
+The project includes over 50 algorithm implementations covering:
+
+<ul>
+<li><strong>Basic Data Structures</strong>: Stacks, Queues, Lists</li>
+<li><strong>Trees</strong>: BST, AVL, Red-Black, Splay Trees, B-Trees</li>
+<li><strong>Hash Tables</strong>: Open and Closed addressing</li>
+<li><strong>Sorting Algorithms</strong>: Comparison and non-comparison sorts</li>
+<li><strong>Graph Algorithms</strong>: BFS, DFS, Shortest Path, MST</li>
+<li><strong>Dynamic Programming</strong>: Fibonacci, Making Change, LCS</li>
+<li><strong>Heaps</strong>: Binary, Binomial, Fibonacci, Leftist</li>
+<li><strong>Other Algorithms</strong>: Recursion, Geometric, Disjoint Sets</li>
+</ul>
+
+<br>
+
+<h1>How to Use the Visualizations</h1>
+
+The visualizations are designed to be intuitive and educational. Here's how to get the most out of them:
+
+<br><br>
 
 <img src="Screenshot.png" alt="BST Screenshot">
 <br>
 
-<h2> Algorithm Specific Controls </h2>
-At the top of the screen (boxed in red in the above screenshot) are the algorithm specific controls -- these will change depending upon
-what algorithm you are visualizing.  In this example, you could insert, delete, or find an element in the BST by entering text in the
-appropriate field and either pressing return or clicking the relevant button.  The tree can be printed by clicking the print button.  
-Once you give a command, the visualiztion will start, and can be controlled by the general animation controls at the bottom of the screen.
+<h2>Algorithm Specific Controls</h2>
 
-<h2> General Animation Controls </h2>
+At the top of each visualization page, you'll find algorithm-specific controls that change depending on what you're visualizing. These typically include:
 
 <ul>
-<li> <em> Skip Back</em> If you are in the middle of an animation, this button will completly undo the current command.  If you are 
-not in the middle of an animation, this button will undo the previous command </li>
-<li> <em> Step Back</em> This button is only active if you have paused the current animation (using the play/pause button).  Step back
-one step in the current animation.  If you are not currently animating, step back into the previous command.  You could use this button
-(with sufficient keypresses) to back up through the entire history of everything you've done </li>
-<li> <em> Play/Pause</em> Toggle between play mode (in which the algorithm runs free until it completes) and paused mode (where you need to
-press the Step Forward or Step Back button to advance the animation) </li>
-<li> <em> Step Forward </em> This button is only active if you have paused the current animation (using the play/pause button), and the current
-animation has not yet completed.  Step
-forward one step in the current animation. </li>
-<li> <em>Skip Forward </em> This button is only active if the current animation has not completed.  Skip to the end of the current animation
-</li>
-<li> <em>Animation Speed (slider)</em> Change the speed of the animation.  The value of this slider is saved in a cookie, so you should
-only need to set it once if you have a preferred speed</li>
-<li><em>w, h, Chnage Canvas Size</em> Change the width / height of the display area.  While the change is immediate, the animations will
-not be centered in this new field until you reload the page.  This will clear out the currnet animation, but the width and hight values 
-are also saved in a cookie, so you should only need to change this field once, and then everything should work well if you are on
-a smart phone or a desktop with loads of screen real estate.
-</li>
-<li> <em>Move Controls</em> Toggle between the general controls being at the top or bottom of the webpage</li>
+<li><strong>Input fields</strong> for entering data (numbers, text, etc.)</li>
+<li><strong>Action buttons</strong> for operations like Insert, Delete, Find</li>
+<li><strong>Specialized controls</strong> for algorithm-specific features</li>
+</ul>
+
+Simply enter your data and click the appropriate button or press Enter to start the visualization.
 
 <br>
 
-Note that it can be easy to confuse yourself by stepping forward an backwards through an animation -- you can confuse the <em>next</em>
-step in the animation with the <em>previous</em> step, and misunderstand how the algorithm works.  You may wish to only step
-forward when you are first delving into a particular algorithm.
+<h2>General Animation Controls</h2>
 
+<ul>
+<li><strong>Skip Back</strong>: Completely undo the current command or go back to the previous command</li>
+<li><strong>Step Back</strong>: Step backward one frame in the current animation (only active when paused)</li>
+<li><strong>Play/Pause</strong>: Toggle between automatic playback and manual stepping mode</li>
+<li><strong>Step Forward</strong>: Step forward one frame in the current animation (only active when paused)</li>
+<li><strong>Skip Forward</strong>: Jump to the end of the current animation</li>
+<li><strong>Animation Speed (slider)</strong>: Adjust the playback speed (settings are saved in cookies)</li>
+<li><strong>Canvas Size (w, h)</strong>: Modify the display area dimensions for different screen sizes</li>
+<li><strong>Move Controls</strong>: Toggle control position between top and bottom of the page</li>
 </ul>
 
+<br>
+
+<h2>Tips for Learning</h2>
+
+<ul>
+<li><strong>Start with Play mode</strong> to see the full algorithm flow</li>
+<li><strong>Use Step mode</strong> to examine each operation in detail</li>
+<li><strong>Try different inputs</strong> to understand edge cases and behavior</li>
+<li><strong>Use the undo feature</strong> to review previous steps</li>
+<li><strong>Adjust animation speed</strong> to match your learning pace</li>
+</ul>
+
+<br>
+
+<em>Note: Be careful when stepping forward and backward through animations - it's easy to confuse the next step with the previous step. When first learning an algorithm, consider only stepping forward to avoid confusion.</em>
+
+<br><br>
+
+<h2>Educational Applications</h2>
+
+This project is ideal for:
+
+<ul>
+<li><strong>Computer Science courses</strong> (Data Structures, Algorithms)</li>
+<li><strong>Self-study</strong> and exam preparation</li>
+<li><strong>Teaching demonstrations</strong> in classrooms</li>
+<li><strong>Interview preparation</strong> for technical roles</li>
+<li><strong>Understanding complex algorithmic concepts</strong> through visualization</li>
+</ul>
+
+<br>
+
+<h2>Technology Stack</h2>
+
+<ul>
+<li><strong>HTML5 Canvas</strong>: 2D rendering engine for all visual elements</li>
+<li><strong>Vanilla JavaScript</strong>: Core application logic (ES5 compatible)</li>
+<li><strong>CSS3</strong>: Styling and responsive layout</li>
+<li><strong>jQuery & jQuery UI</strong>: UI components and controls</li>
+<li><strong>Command Pattern</strong>: For reproducible, undoable animations</li>
+<li><strong>Object-Oriented Design</strong>: Modular and extensible architecture</li>
+</ul>
+
+<br>
+
+<em>"The best way to understand complex data structures is to see them in action."</em>
+
+<br><br>
 
 </div>
 <div class="footer">Copyright 2025 <a href = "http://www.alxafrica.com">ALX </a> </div>
