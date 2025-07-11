@@ -1,121 +1,343 @@
 @charset "utf-8";
 
+/* Visualization Page Specific Styles */
+/* This file complements visualPages.css for algorithm visualization pages */
 
-body {
-	font: 100% Verdana, Arial, Helvetica, sans-serif;
-	/*background: #666666; */
-	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
-	padding: 0;
-	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
-	color: #000000;
+/* Main Visualization Layout */
+.VisualizationMainPage {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--gray-50);
+  margin: 0;
+  padding: 0;
+  color: var(--gray-800);
+  line-height: 1.6;
 }
-
-
-
-
-.VisualizationMainPage #mainContent {
-	/*padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
-	background: #FFFFFF;
-}
-
-
 
 .VisualizationMainPage #container {
-
-
-	background: #FFFFFF;
-	/*margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
-	text-align: left; /* this overrides the text-align: center on the body element. */
+  max-width: 1400px;
+  margin: 0 auto;
+  background: var(--white);
+  min-height: 100vh;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
 }
 
-
-.VisualizationMainPage #algoControlSection
-{
-	background: #DDEEDD; 
-	color:#000000; 
-
+/* Header for Visualization Pages */
+.VisualizationMainPage #header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-
-.VisualizationMainPage #generalAnimationControlSection
-{
-	background: #DDEEDD; 
-	color:#006600; 
-
-}
-
-.VisualizationMainPage  #header { 
-	background: #006633; 
-	color:#ffCC33;
-	padding: 0 10px 0 20px; 
-  
-} 
- 
-.VisualizationMainPage #header  A:visited 
-	  { text-decoration:none;
-        color:#ffCC33; 
-	   }
-	   
-	   
 .VisualizationMainPage #header h1 {
-	margin: 0; 
-	padding: 10px 0; 
-	}
-	   
-.VisualizationMainPage #header A:link {
-    text-decoration:none;
-    color:#ffCC33;
-	}
-	
-	
-.VisualizationMainPage #container {
-	background: #FFFFFF;
-	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
-	text-align: left; /* this overrides the text-align: center on the body element. */
-}	
-	
-	
-.VisualizationMainPage #footer  A:visited { text-decoration:none;
-        color:ffcc33; 
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.VisualizationMainPage #footer A:link {
-    text-decoration:none;
-	color:#ffCC33;
+.VisualizationMainPage #header a:link,
+.VisualizationMainPage #header a:visited {
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
-
-	
-
-.VisualizationMainPage #mainContent h1{
-	padding: 0 20px; 
-	background: #FFFFFF;
-	color:#006633
+.VisualizationMainPage #header a:hover {
+  opacity: 0.9;
 }
 
-.VisualizationMainPage #mainContent h2{
-	padding: 0 20px; 
-	background: #FFFFFF;
-	color:#006633
+/* Main Content Area */
+.VisualizationMainPage #mainContent {
+  flex: 1;
+  padding: 2rem;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.VisualizationMainPage #mainContent h3{
-	padding: 0 20px; 
-	background: #FFFFFF;
-	color:#006633
+/* Algorithm Control Section */
+.VisualizationMainPage #algoControlSection {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
 }
 
+.VisualizationMainPage #algoControlSection h3 {
+  color: var(--gray-800);
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
 
+/* General Animation Control Section */
+.VisualizationMainPage #generalAnimationControlSection {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+}
 
-.VisualizationMainPage #footer { 
-	padding: 0 10px;
-    background: #006633; 
-	color:#ffcc33;
-} 
+.VisualizationMainPage #generalAnimationControlSection h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Canvas Container */
+.VisualizationMainPage #canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  margin: 1rem 0;
+}
+
+/* Canvas Styling */
+.VisualizationMainPage canvas {
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  background: var(--white);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Content Typography */
+.VisualizationMainPage #mainContent h1 {
+  color: var(--gray-900);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.VisualizationMainPage #mainContent h2 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--gray-200);
+  padding-bottom: 0.5rem;
+}
+
+.VisualizationMainPage #mainContent h3 {
+  color: var(--gray-800);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Form Controls */
+.VisualizationMainPage input[type="text"],
+.VisualizationMainPage input[type="number"],
+.VisualizationMainPage select {
+  font-family: inherit;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  margin: 0.25rem;
+}
+
+.VisualizationMainPage input:focus,
+.VisualizationMainPage select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.VisualizationMainPage button {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: var(--transition);
+  margin: 0.25rem;
+}
+
+.VisualizationMainPage button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.VisualizationMainPage button:active {
+  transform: translateY(0);
+}
+
+.VisualizationMainPage button:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Control Groups */
+.VisualizationMainPage .control-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.VisualizationMainPage .control-group label {
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-right: 0.5rem;
+}
+
+/* Footer */
+.VisualizationMainPage #footer {
+  background: var(--gray-800);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
 .VisualizationMainPage #footer p {
-	margin: 0; 	padding: 10px 0; 
+  margin: 0;
+  font-size: 0.875rem;
 }
 
-EM {text-decoration: bold;}
+.VisualizationMainPage #footer a:link,
+.VisualizationMainPage #footer a:visited {
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.VisualizationMainPage #footer a:hover {
+  color: var(--gray-300);
+  text-decoration: underline;
+}
+
+/* Responsive Design for Visualization Pages */
+@media (max-width: 1024px) {
+  .VisualizationMainPage #mainContent {
+    padding: 1.5rem;
+  }
+  
+  .VisualizationMainPage #algoControlSection,
+  .VisualizationMainPage #generalAnimationControlSection {
+    padding: 1rem;
+  }
+  
+  .VisualizationMainPage #canvas-container {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .VisualizationMainPage #header {
+    padding: 1rem;
+  }
+  
+  .VisualizationMainPage #header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .VisualizationMainPage #mainContent {
+    padding: 1rem;
+  }
+  
+  .VisualizationMainPage #mainContent h1 {
+    font-size: 1.5rem;
+  }
+  
+  .VisualizationMainPage #mainContent h2 {
+    font-size: 1.25rem;
+  }
+  
+  .VisualizationMainPage #canvas-container {
+    min-height: 250px;
+    padding: 0.5rem;
+  }
+  
+  .VisualizationMainPage canvas {
+    max-width: calc(100vw - 2rem);
+  }
+  
+  .VisualizationMainPage .control-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .VisualizationMainPage #header {
+    padding: 0.75rem;
+  }
+  
+  .VisualizationMainPage #header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .VisualizationMainPage #mainContent {
+    padding: 0.75rem;
+  }
+  
+  .VisualizationMainPage #algoControlSection,
+  .VisualizationMainPage #generalAnimationControlSection {
+    padding: 0.75rem;
+  }
+  
+  .VisualizationMainPage #canvas-container {
+    min-height: 200px;
+    padding: 0.25rem;
+  }
+  
+  .VisualizationMainPage input,
+  .VisualizationMainPage select,
+  .VisualizationMainPage button {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Utility Classes */
+.VisualizationMainPage .text-center {
+  text-align: center;
+}
+
+.VisualizationMainPage .mt-2 {
+  margin-top: 1rem;
+}
+
+.VisualizationMainPage .mb-2 {
+  margin-bottom: 1rem;
+}
+
+.VisualizationMainPage .hidden {
+  display: none;
+}
+
+.VisualizationMainPage .disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
 
 	

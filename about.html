@@ -1,168 +1,467 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="visualPages.css">
-<title> Data Structure Visualization   </title>
+<title>About - Data Structure Visualization</title>
 <link rel="shortcut icon" href="favicon.ico" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --success: #10b981;
+  --warning: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.7;
+  color: var(--gray-800);
+  background: var(--gray-50);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 0 0 1px var(--gray-200);
+}
+
+.header {
+  background: var(--primary);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.menu {
+  background: transparent;
+  border-bottom: none;
+  padding: 1.5rem 0;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.menu a {
+  color: var(--gray-700);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.menu a:hover {
+  color: var(--primary);
+}
+
+.menu a[href="about.html"] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.content {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+
+.intro p {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.feature-card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border-color: var(--primary);
+}
+
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+.section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  border: 1px solid var(--gray-200);
+}
+
+.section h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+
+.section p {
+  margin-bottom: 1rem;
+  color: var(--gray-700);
+}
+
+.section ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.section li {
+  padding: 0.5rem 0;
+  color: var(--gray-700);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.section li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.screenshot {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.screenshot img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+  border: 1px solid var(--gray-200);
+}
+
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.tech-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray-200);
+  text-align: center;
+}
+
+.tech-item h4 {
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.tech-item p {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  border-left: 4px solid var(--primary);
+}
+
+.footer {
+  background: var(--gray-800);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.875rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .menu ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .intro h1 {
+    font-size: 2rem;
+  }
+  
+  .content {
+    padding: 2rem 1rem;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro h1 {
+    font-size: 1.75rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+}
+</style>
 </head>
 <body>
 
 <div class="container">
-<div class="header"><h1>Data Structure Visualizations</h1> </div>
+<div class="header">
+  <h1>Data Structure Visualizations</h1>
+</div>
+
 <div class="menu">
 <ul>
-<li> <a href="about.html">About</a> </li>
-<li> <a href="Algorithms.html">Algorithms</a> </li>
-<li> <a href="contact.html"> Contact </a> </li>
+<li><a href="about.html">About</a></li>
+<li><a href="Algorithms.html">Algorithms</a></li>
+<li><a href="contact.html">Contact</a></li>
 </ul>
-
-<br> <br>
-
 </div>
-
-
 
 <div class="content">
+<div class="intro">
+  <h1>About Algorithm Visualization</h1>
+  <p>A comprehensive collection of interactive visualizations for fundamental data structures and algorithms. Built with modern web technologies to provide an engaging educational experience.</p>
+</div>
 
-<h1>About Algorithm Visualization Project</h1>
+<div class="features">
+  <div class="feature-card">
+    <div class="feature-icon">🎯</div>
+    <h3>Interactive Learning</h3>
+    <p>Step-by-step animations with user-controlled execution for deep understanding of algorithmic concepts.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎮</div>
+    <h3>User Controls</h3>
+    <p>Play, pause, step forward and backward through animations with customizable speed settings.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📱</div>
+    <h3>Multi-Platform</h3>
+    <p>Works seamlessly on desktop, mobile, and tablet devices with responsive design.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎓</div>
+    <h3>Educational Value</h3>
+    <p>Perfect for classroom demonstrations, self-study, and exam preparation.</p>
+  </div>
+</div>
 
-This project is a comprehensive collection of <b>interactive visualizations</b> for fundamental data structures and algorithms. Built with HTML5 Canvas and JavaScript, it provides an educational platform for understanding how various algorithms work through step-by-step animations.
+<div class="section">
+  <h2>Project Features</h2>
+  <ul>
+    <li>Real-time step-by-step animations of algorithms</li>
+    <li>User-controlled execution with play, pause, and step controls</li>
+    <li>Input customization for testing different scenarios</li>
+    <li>Multi-platform support (desktop, mobile, tablets)</li>
+    <li>Self-explanatory interface with intuitive controls</li>
+    <li>Educational value for classroom demonstrations and self-study</li>
+  </ul>
+</div>
 
-<br><br>
+<div class="section">
+  <h2>Technical Architecture</h2>
+  <p>The system follows a modular, object-oriented architecture built with vanilla JavaScript and HTML5 Canvas:</p>
+  <ul>
+    <li>Presentation Layer: HTML pages, CSS styling, and UI controls</li>
+    <li>Algorithm Layer: Base algorithm classes and specific implementations</li>
+    <li>Animation Layer: Animation engine and animated objects</li>
+    <li>Rendering Layer: HTML5 Canvas 2D context and timing APIs</li>
+  </ul>
+</div>
 
-Originally created by David Galles at the University of San Francisco, this project continues to serve as an excellent learning resource for computer science students and educators worldwide.
+<div class="section">
+  <h2>Available Visualizations</h2>
+  <p>The project includes over 50 algorithm implementations covering:</p>
+  <ul>
+    <li>Basic Data Structures: Stacks, Queues, Lists</li>
+    <li>Trees: BST, AVL, Red-Black, Splay Trees, B-Trees</li>
+    <li>Hash Tables: Open and Closed addressing</li>
+    <li>Sorting Algorithms: Comparison and non-comparison sorts</li>
+    <li>Graph Algorithms: BFS, DFS, Shortest Path, MST</li>
+    <li>Dynamic Programming: Fibonacci, Making Change, LCS</li>
+    <li>Heaps: Binary, Binomial, Fibonacci, Leftist</li>
+    <li>Other Algorithms: Recursion, Geometric, Disjoint Sets</li>
+  </ul>
+</div>
 
-<br><br>
+<div class="screenshot">
+  <img src="Screenshot.png" alt="BST Visualization Screenshot">
+</div>
 
-<h2>Project Features</h2>
+<div class="section">
+  <h2>How to Use</h2>
+  <p>The visualizations are designed to be intuitive and educational. Here's how to get the most out of them:</p>
+  
+  <h3>Algorithm Controls</h3>
+  <p>At the top of each visualization, you'll find algorithm-specific controls including input fields for data entry and action buttons for operations like Insert, Delete, and Find.</p>
+  
+  <h3>Animation Controls</h3>
+  <ul>
+    <li>Skip Back: Undo current command or go to previous command</li>
+    <li>Step Back: Move backward one frame (when paused)</li>
+    <li>Play/Pause: Toggle automatic playback and manual stepping</li>
+    <li>Step Forward: Move forward one frame (when paused)</li>
+    <li>Skip Forward: Jump to end of current animation</li>
+    <li>Speed Control: Adjust playback speed with slider</li>
+  </ul>
+</div>
 
-<ul>
-<li><strong>Real-time step-by-step animations</strong> of algorithms</li>
-<li><strong>User-controlled execution</strong> with play, pause, and step controls</li>
-<li><strong>Input customization</strong> for testing different scenarios</li>
-<li><strong>Multi-platform support</strong> (desktop, mobile, tablets)</li>
-<li><strong>Self-explanatory interface</strong> with intuitive controls</li>
-<li><strong>Educational value</strong> for classroom demonstrations and self-study</li>
-</ul>
+<div class="section">
+  <h2>Technology Stack</h2>
+  <div class="tech-stack">
+    <div class="tech-item">
+      <h4>HTML5 Canvas</h4>
+      <p>2D rendering engine for visual elements</p>
+    </div>
+    <div class="tech-item">
+      <h4>JavaScript</h4>
+      <p>Core application logic and algorithms</p>
+    </div>
+    <div class="tech-item">
+      <h4>CSS3</h4>
+      <p>Modern styling and responsive design</p>
+    </div>
+    <div class="tech-item">
+      <h4>jQuery</h4>
+      <p>UI components and user interactions</p>
+    </div>
+  </div>
+</div>
 
-<br>
+<div class="quote">
+  "The best way to understand complex data structures is to see them in action."
+</div>
 
-<h2>Technical Architecture</h2>
-
-The system follows a modular, object-oriented architecture built with vanilla JavaScript and HTML5 Canvas:
-
-<ul>
-<li><strong>Presentation Layer</strong>: HTML pages, CSS styling, and UI controls</li>
-<li><strong>Algorithm Layer</strong>: Base algorithm classes and specific implementations</li>
-<li><strong>Animation Layer</strong>: Animation engine and animated objects</li>
-<li><strong>Rendering Layer</strong>: HTML5 Canvas 2D context and timing APIs</li>
-</ul>
-
-<br>
-
-<h2>Available Visualizations</h2>
-
-The project includes over 50 algorithm implementations covering:
-
-<ul>
-<li><strong>Basic Data Structures</strong>: Stacks, Queues, Lists</li>
-<li><strong>Trees</strong>: BST, AVL, Red-Black, Splay Trees, B-Trees</li>
-<li><strong>Hash Tables</strong>: Open and Closed addressing</li>
-<li><strong>Sorting Algorithms</strong>: Comparison and non-comparison sorts</li>
-<li><strong>Graph Algorithms</strong>: BFS, DFS, Shortest Path, MST</li>
-<li><strong>Dynamic Programming</strong>: Fibonacci, Making Change, LCS</li>
-<li><strong>Heaps</strong>: Binary, Binomial, Fibonacci, Leftist</li>
-<li><strong>Other Algorithms</strong>: Recursion, Geometric, Disjoint Sets</li>
-</ul>
-
-<br>
-
-<h1>How to Use the Visualizations</h1>
-
-The visualizations are designed to be intuitive and educational. Here's how to get the most out of them:
-
-<br><br>
-
-<img src="Screenshot.png" alt="BST Screenshot">
-<br>
-
-<h2>Algorithm Specific Controls</h2>
-
-At the top of each visualization page, you'll find algorithm-specific controls that change depending on what you're visualizing. These typically include:
-
-<ul>
-<li><strong>Input fields</strong> for entering data (numbers, text, etc.)</li>
-<li><strong>Action buttons</strong> for operations like Insert, Delete, Find</li>
-<li><strong>Specialized controls</strong> for algorithm-specific features</li>
-</ul>
-
-Simply enter your data and click the appropriate button or press Enter to start the visualization.
-
-<br>
-
-<h2>General Animation Controls</h2>
-
-<ul>
-<li><strong>Skip Back</strong>: Completely undo the current command or go back to the previous command</li>
-<li><strong>Step Back</strong>: Step backward one frame in the current animation (only active when paused)</li>
-<li><strong>Play/Pause</strong>: Toggle between automatic playback and manual stepping mode</li>
-<li><strong>Step Forward</strong>: Step forward one frame in the current animation (only active when paused)</li>
-<li><strong>Skip Forward</strong>: Jump to the end of the current animation</li>
-<li><strong>Animation Speed (slider)</strong>: Adjust the playback speed (settings are saved in cookies)</li>
-<li><strong>Canvas Size (w, h)</strong>: Modify the display area dimensions for different screen sizes</li>
-<li><strong>Move Controls</strong>: Toggle control position between top and bottom of the page</li>
-</ul>
-
-<br>
-
-<h2>Tips for Learning</h2>
-
-<ul>
-<li><strong>Start with Play mode</strong> to see the full algorithm flow</li>
-<li><strong>Use Step mode</strong> to examine each operation in detail</li>
-<li><strong>Try different inputs</strong> to understand edge cases and behavior</li>
-<li><strong>Use the undo feature</strong> to review previous steps</li>
-<li><strong>Adjust animation speed</strong> to match your learning pace</li>
-</ul>
-
-<br>
-
-<em>Note: Be careful when stepping forward and backward through animations - it's easy to confuse the next step with the previous step. When first learning an algorithm, consider only stepping forward to avoid confusion.</em>
-
-<br><br>
-
-<h2>Educational Applications</h2>
-
-This project is ideal for:
-
-<ul>
-<li><strong>Computer Science courses</strong> (Data Structures, Algorithms)</li>
-<li><strong>Self-study</strong> and exam preparation</li>
-<li><strong>Teaching demonstrations</strong> in classrooms</li>
-<li><strong>Interview preparation</strong> for technical roles</li>
-<li><strong>Understanding complex algorithmic concepts</strong> through visualization</li>
-</ul>
-
-<br>
-
-<h2>Technology Stack</h2>
-
-<ul>
-<li><strong>HTML5 Canvas</strong>: 2D rendering engine for all visual elements</li>
-<li><strong>Vanilla JavaScript</strong>: Core application logic (ES5 compatible)</li>
-<li><strong>CSS3</strong>: Styling and responsive layout</li>
-<li><strong>jQuery & jQuery UI</strong>: UI components and controls</li>
-<li><strong>Command Pattern</strong>: For reproducible, undoable animations</li>
-<li><strong>Object-Oriented Design</strong>: Modular and extensible architecture</li>
-</ul>
-
-<br>
-
-<em>"The best way to understand complex data structures is to see them in action."</em>
-
-<br><br>
+<div class="section">
+  <h2>Educational Applications</h2>
+  <p>This project is ideal for:</p>
+  <ul>
+    <li>Computer Science courses (Data Structures, Algorithms)</li>
+    <li>Self-study and exam preparation</li>
+    <li>Teaching demonstrations in classrooms</li>
+    <li>Interview preparation for technical roles</li>
+    <li>Understanding complex algorithmic concepts through visualization</li>
+  </ul>
+</div>
 
 </div>
-<div class="footer">Copyright 2025 <a href = "http://www.alxafrica.com">ALX </a> </div>
+
+<div class="footer">
+  Copyright 2025 <a href="http://www.alxafrica.com">ALX</a>
+</div>
 
 </div>
 

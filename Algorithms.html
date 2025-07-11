@@ -1,148 +1,445 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="visualPages.css">
-<title> Data Structure Visualization </title>
+<title>Data Structure Visualization</title>
 <link rel="shortcut icon" href="favicon.ico" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --success: #10b981;
+  --warning: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background: var(--gray-50);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 0 0 1px var(--gray-200);
+}
+
+.header {
+  background: var(--primary);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.menu {
+  background: transparent;
+  border-bottom: none;
+  padding: 1.5rem 0;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.menu a {
+  color: var(--gray-700);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.menu a:hover {
+  color: var(--primary);
+}
+
+.menu a[href="Algorithms.html"] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.content {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  border: 1px solid var(--gray-200);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.category {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.category:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border-color: var(--gray-300);
+}
+
+.category h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--primary);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+}
+
+.category ul {
+  list-style: none;
+}
+
+.category li {
+  margin-bottom: 0.5rem;
+}
+
+.category a {
+  color: var(--gray-700);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  display: block;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+}
+
+.category a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.working {
+  color: var(--gray-500);
+  font-style: italic;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  font-size: 0.875rem;
+}
+
+.footer {
+  background: var(--gray-800);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.875rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .menu ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .hero h2 {
+    font-size: 1.875rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .content {
+    padding: 2rem 1rem;
+  }
+  
+  .categories {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  
+  .category {
+    padding: 1rem;
+  }
+}
+</style>
 </head>
 <body>
 
 <div class="container">
-<div class="header"><h1>Data Structure Visualizations</h1> </div>
+<div class="header">
+  <h1>Data Structure Visualizations</h1>
+</div>
+
 <div class="menu">
 <ul>
-<li> <a href="about.html">About</a> </li>
-<li> <a href="Algorithms.html">Algorithms</a> </li>
-<li> <a href="contact.html"> Contact </a> </li>
+<li><a href="about.html">About</a></li>
+<li><a href="Algorithms.html">Algorithms</a></li>
+<li><a href="contact.html">Contact</a></li>
 </ul>
-
-<br> <br>
-
 </div>
 
 <div class="content">
+<div class="hero">
+  <h2>Algorithm Visualizations</h2>
+  <p>Explore interactive visualizations of fundamental data structures and algorithms</p>
+</div>
 
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Algorithms</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">9</div>
+    <div class="stat-label">Categories</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Interactive</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">Free</div>
+    <div class="stat-label">Open Source</div>
+  </div>
+</div>
 
-Currently, we have visualizations for the following data structures
-and algorithms:
+<div class="categories">
+  <div class="category">
+    <h3><span class="category-icon">🔧</span>Basics</h3>
+    <ul>
+      <li><a href="StackArray.html">Stack: Array Implementation</a></li>
+      <li><a href="StackLL.html">Stack: Linked List Implementation</a></li>
+      <li><a href="QueueArray.html">Queues: Array Implementation</a></li>
+      <li><a href="QueueLL.html">Queues: Linked List Implementation</a></li>
+      <li><span class="working">Lists: Array Implementation (working on it)</span></li>
+      <li><span class="working">Lists: Linked List Implementation (working on it)</span></li>
+    </ul>
+  </div>
 
-<ul>
-  
- <li> Basics </li>
- <ul>
- <li> <a href = "StackArray.html">Stack:  Array Implementation</a> </li>
- <li><a href = "StackLL.html">Stack:  Linked List Implementation</a> </li>
- <li> <a href = "QueueArray.html">Queues:  Array Implementation</a> </li>
- <li> <a href = "QueueLL.html">Queues:  Linked List Implementation</a> </li>
- <li> Lists: Array Implementation (working on it)</li>
- <li> Lists: Linked List Implementation (working on it) </li>
- </ul>
-  
- <li> Recursion </li>
- <ul>
- <li> <a href = "RecFact.html">Factorial</a> </li>
- <li><a href = "RecReverse.html">Reversing a String</a> </li>
- <li><a href = "RecQueens.html">N-Queens Problem</a> </li>
- </ul>
-  
-<li> Indexing </li>  
+  <div class="category">
+    <h3><span class="category-icon">🔄</span>Recursion</h3>
+    <ul>
+      <li><a href="RecFact.html">Factorial</a></li>
+      <li><a href="RecReverse.html">Reversing a String</a></li>
+      <li><a href="RecQueens.html">N-Queens Problem</a></li>
+    </ul>
+  </div>
 
-<ul>  
-<li> <a href = "Search.html">Binary and Linear Search (of sorted list)</a> </li>
-<li> <a href = "BST.html">Binary Search Trees</a> </li>
-<li> <a href = "AVLtree.html">AVL Trees (Balanced binary search trees)</a> </li>
-<li> <a href = "RedBlack.html">Red-Black Trees</a> </li>
-<li> <a href = "SplayTree.html">Splay Trees</a> </li>
-<li> <a href = "OpenHash.html">Open Hash Tables (Closed Addressing)</a>  </li>
-<li> <a href = "ClosedHash.html">Closed Hash Tables (Open Addressing)</a>  </li>
-<li> <a href = "ClosedHashBucket.html">Closed Hash Tables, using buckets</a>  </li>
-<li> <a href = "Trie.html">Trie (Prefix Tree, 26-ary Tree)</a>  </li>
-<li> <a href = "RadixTree.html">Radix Tree (Compact Trie)</a>  </li>
-<li> <a href = "TST.html">Ternary Search Tree (Trie with BST of children)</a>  </li>
-<li> <a href = "BTree.html">B Trees</a></li>
-<li> <a href = "BPlusTree.html">B+ Trees</a></li>
-</ul>
+  <div class="category">
+    <h3><span class="category-icon">🌳</span>Trees & Indexing</h3>
+    <ul>
+      <li><a href="Search.html">Binary and Linear Search</a></li>
+      <li><a href="BST.html">Binary Search Trees</a></li>
+      <li><a href="AVLtree.html">AVL Trees</a></li>
+      <li><a href="RedBlack.html">Red-Black Trees</a></li>
+      <li><a href="SplayTree.html">Splay Trees</a></li>
+      <li><a href="OpenHash.html">Open Hash Tables</a></li>
+      <li><a href="ClosedHash.html">Closed Hash Tables</a></li>
+      <li><a href="ClosedHashBucket.html">Closed Hash Tables (Buckets)</a></li>
+      <li><a href="Trie.html">Trie (Prefix Tree)</a></li>
+      <li><a href="RadixTree.html">Radix Tree</a></li>
+      <li><a href="TST.html">Ternary Search Tree</a></li>
+      <li><a href="BTree.html">B Trees</a></li>
+      <li><a href="BPlusTree.html">B+ Trees</a></li>
+    </ul>
+  </div>
 
-<li> Sorting </li>
-<ul>
-<li> <a href = "ComparisonSort.html">Comparison Sorting</a> 
-<ul>
-<li> Bubble Sort (working on it)</li>
-<li> Selection Sort (working on it)</li>
-<li> Insertion Sort (working on it)</li>
-<li> Shell Sort (working on it)</li>
-<li> Merge Sort (working on it)</li>
-<li> Quck Sort (working on it)</li>
-</ul>
-</li>
-<li> <a href = "BucketSort.html">Bucket Sort</a>  </li>
-<li> <a href = "CountingSort.html">Counting Sort</a>  </li>
-<li> <a href = "RadixSort.html">Radix Sort</a>  </li>
-<li> <a href = "HeapSort.html">Heap Sort</a>  </li>
-</ul> 
+  <div class="category">
+    <h3><span class="category-icon">↕️</span>Sorting</h3>
+    <ul>
+      <li><a href="ComparisonSort.html">Comparison Sorting</a></li>
+      <li><span class="working">Bubble Sort (working on it)</span></li>
+      <li><span class="working">Selection Sort (working on it)</span></li>
+      <li><span class="working">Insertion Sort (working on it)</span></li>
+      <li><span class="working">Shell Sort (working on it)</span></li>
+      <li><span class="working">Merge Sort (working on it)</span></li>
+      <li><span class="working">Quick Sort (working on it)</span></li>
+      <li><a href="BucketSort.html">Bucket Sort</a></li>
+      <li><a href="CountingSort.html">Counting Sort</a></li>
+      <li><a href="RadixSort.html">Radix Sort</a></li>
+      <li><a href="HeapSort.html">Heap Sort</a></li>
+    </ul>
+  </div>
 
-<li> Heap-like Data Structures </li>
-<ul>
-<li> <a href = "Heap.html">Heaps</a> </li>
-<li> <a href = "BinomialQueue.html">Binomial Queues</a> </li>
-<li> <a href = "FibonacciHeap.html">Fibonacci Heaps</a> </li>
-<li> <a href = "LeftistHeap.html">Leftist Heaps</a> </li>
-<li> <a href = "SkewHeap.html">Skew Heaps</a> </li>
-</ul>
+  <div class="category">
+    <h3><span class="category-icon">🏔️</span>Heap Structures</h3>
+    <ul>
+      <li><a href="Heap.html">Heaps</a></li>
+      <li><a href="BinomialQueue.html">Binomial Queues</a></li>
+      <li><a href="FibonacciHeap.html">Fibonacci Heaps</a></li>
+      <li><a href="LeftistHeap.html">Leftist Heaps</a></li>
+      <li><a href="SkewHeap.html">Skew Heaps</a></li>
+    </ul>
+  </div>
 
-<li> Graph Algorithms </li>
-<ul>
-<li> <a href = "BFS.html">Breadth-First Search</a> </li>
-<li> <a href = "DFS.html">Depth-First Search</a> </li>
-<li> <a href = "ConnectedComponent.html">Connected Components</a> </li>
-<li> <a href = "Dijkstra.html">Dijkstra's Shortest Path</a> </li>
-<li> <a href = "Prim.html">Prim's Minimum Cost Spanning Tree</a> </li>
-<li> <a href = "TopoSortIndegree.html">Topological Sort (Using Indegree array) </a> </li>
-<li> <a href = "TopoSortDFS.html">Topological Sort (Using DFS) </a> </li>
-<li> <a href = "Floyd.html">Floyd-Warshall (all pairs shortest paths)</a> </li>
-<li> <a href = "Kruskal.html">Kruskal Minimum Cost Spanning Tree Algorithm</a></li>
+  <div class="category">
+    <h3><span class="category-icon">🕸️</span>Graph Algorithms</h3>
+    <ul>
+      <li><a href="BFS.html">Breadth-First Search</a></li>
+      <li><a href="DFS.html">Depth-First Search</a></li>
+      <li><a href="ConnectedComponent.html">Connected Components</a></li>
+      <li><a href="Dijkstra.html">Dijkstra's Shortest Path</a></li>
+      <li><a href="Prim.html">Prim's MST</a></li>
+      <li><a href="TopoSortIndegree.html">Topological Sort (Indegree)</a></li>
+      <li><a href="TopoSortDFS.html">Topological Sort (DFS)</a></li>
+      <li><a href="Floyd.html">Floyd-Warshall</a></li>
+      <li><a href="Kruskal.html">Kruskal MST</a></li>
+    </ul>
+  </div>
 
-</ul>
+  <div class="category">
+    <h3><span class="category-icon">🧮</span>Dynamic Programming</h3>
+    <ul>
+      <li><a href="DPFib.html">Fibonacci Numbers</a></li>
+      <li><a href="DPChange.html">Making Change</a></li>
+      <li><a href="DPLCS.html">Longest Common Subsequence</a></li>
+    </ul>
+  </div>
 
+  <div class="category">
+    <h3><span class="category-icon">📐</span>Geometric</h3>
+    <ul>
+      <li><a href="RotateScale2D.html">2D Rotation and Scale</a></li>
+      <li><a href="RotateTranslate2D.html">2D Rotation and Translation</a></li>
+      <li><a href="ChangingCoordinates2D.html">2D Coordinate Systems</a></li>
+      <li><a href="RotateScale3D.html">3D Rotation and Scale</a></li>
+      <li><a href="ChangingCoordinates3D.html">3D Coordinate Systems</a></li>
+    </ul>
+  </div>
 
-<li> Dynamic Programming </li>
-<ul>
-<li> <a href = "DPFib.html">Calculating nth Fibonacci number</a></li>
-<li> <a href = "DPChange.html">Making Change</a></li>
-<li> <a href = "DPLCS.html">Longest Common Subsequence</a></li>
-</ul>
-
-
-<li> Geometric Algorithms</li>
-
-<!-- <li> B-Trees -->
-
-<ul>
-
-<li> <a href = "RotateScale2D.html">2D Rotation and Scale Matrices</a> </li>
-<li> <a href = "RotateTranslate2D.html">2D Rotation and Translation Matrices</a> </li>
-<li> <a href = "ChangingCoordinates2D.html">2D Changing Coordinate Systems</a> </li>
-<li> <a href = "RotateScale3D.html">3D Rotation and Scale Matrices</a> </li>
-<li> <a href = "ChangingCoordinates3D.html">3D Changing Coordinate Systems</a> </li>
-
-</ul>
-
-
-<li> Others ...  </li>
-
-<!-- <li> B-Trees -->
-
-<ul>
-
-<li> <a href = "DisjointSets.html">Disjoint Sets</a> </li>
-<li> Huffman Coding (working on it) </li>
-
-</ul>
-
- </ul>
- 
+  <div class="category">
+    <h3><span class="category-icon">⚙️</span>Others</h3>
+    <ul>
+      <li><a href="DisjointSets.html">Disjoint Sets</a></li>
+      <li><span class="working">Huffman Coding (working on it)</span></li>
+    </ul>
+  </div>
+</div>
 
 </div>
-<div class="footer">Copyright 2025 <a href = "http://www.alxafrica.com">ALX </a> </div>
+<div class="footer">
+  Copyright 2025 <a href="http://www.alxafrica.com">ALX</a>
+</div>
 
 </div>
 
